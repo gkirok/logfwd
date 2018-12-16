@@ -1,18 +1,17 @@
 label = "${UUID.randomUUID().toString()}"
 BUILD_FOLDER = "/go"
 expired=240
-env=prod
 quay_user = "gkirok"
-quay_credentials = "iguazio-${env}-quay-credentials"
+quay_credentials = "iguazio-prod-quay-credentials"
 docker_user = "gallziguazio"
-docker_credentials = "iguazio-${env}-docker-credentials"
+docker_credentials = "iguazio-prod-docker-credentials"
 artifactory_user = "gallz"
-artifactory_url = "iguazio-${env}-artifactory-url"
-artifactory_credentials = "iguazio-${env}-artifactory-credentials"
+artifactory_url = "iguazio-prod-artifactory-url"
+artifactory_credentials = "iguazio-prod-artifactory-credentials"
 git_project = "logfwd"
 git_project_user = "gkirok"
-git_deploy_user = "iguazio-${env}-git-user"
-git_deploy_user_token = "iguazio-${env}-git-user-token"
+git_deploy_user = "iguazio-prod-git-user"
+git_deploy_user_token = "iguazio-prod-git-user-token"
 
 properties([pipelineTriggers([[$class: 'PeriodicFolderTrigger', interval: '2m']])])
 podTemplate(label: "${git_project}-${label}", yaml: """
