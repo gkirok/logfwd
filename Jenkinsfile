@@ -2,7 +2,7 @@ label = "${UUID.randomUUID().toString()}"
 BUILD_FOLDER = "/go"
 expired=240
 git_project = "logfwd"
-git_project_user = "v3io"
+git_project_user = "gkirok"
 git_deploy_user_token = "iguazio-prod-git-user-token"
 git_deploy_user_private_key = "iguazio-prod-git-user-private-key"
 
@@ -17,7 +17,7 @@ podTemplate(label: "${git_project}-${label}", inheritFrom: "jnlp-docker") {
                     [$class: 'GitSCMSource',
                      credentialsId: git_deploy_user_private_key,
                      remote: "git@github.com:iguazio/pipelinex.git"])).com.iguazio.pipelinex
-            multi_credentials=[pipelinex.DockerRepo.ARTIFACTORY_IGUAZIO, pipelinex.DockerRepo.DOCKER_HUB, pipelinex.DockerRepo.QUAY_IO]
+            multi_credentials=[pipelinex.DockerRepoDev.ARTIFACTORY_IGUAZIO, pipelinex.DockerRepoDev.DOCKER_HUB, pipelinex.DockerRepoDev.QUAY_IO]
 
             common.notify_slack {
                 stage('get tag data') {
